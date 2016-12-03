@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="javascripts/papaparse.js"></script>
+<script src="javascripts/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+  <div>
+    <h1>Welcome to the Financial Tracker</h1>
+    <br>
+    <br>
+    <p>Please upload a ".csv" file to be analyzed.</p>
+    <form>
+      <input type="file" name="Finanacial_Statement" id="csv-file" accept=".csv">
+    </form>
+    <script>
+    var data;
+    function handleFileSelect(evt) {
+      var file = evt.target.files[0]
+
+      Papa.parse(file, {
+        header: true,
+        dynamicTyping: true,
+        complete: function(results) {
+          data = results;
+          console.log(results)
+        }
+      });
+    }
+
+    $(document).ready(function(){
+      $("#csv-file").change(handleFileSelect);
+    });
+    </script>
+  </div>
+
+</body>
+</html>
