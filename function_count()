@@ -1,0 +1,28 @@
+function count() {
+  for (var x = 0; x < data.length; x++){
+  var current;
+  var count = 1;
+  var total = 0;
+
+    if(data[x] == null || data[x].Withdrawals == "") {
+    
+    } else if (data[x].Deposits == ""){
+      current = data[x].Description;
+    } 
+
+    for(var y = 1; y < data.length; y++) {
+      if(data[y] == null || data[y].Withdrawals == "") {
+    
+      } else if (data[y].Deposits == ""){
+        if(data[x].Description == data[y].Description) {
+          count++;
+          var a = data[y].Withdrawals;
+          var b = z.split("$");
+          var c = parseInt(a[0]);          
+          total += c;
+          data[y] = null;
+        }
+      }
+    }
+  }
+}
